@@ -3,11 +3,14 @@
 	import { loginUserSchema, type LoginUserSchema } from '$lib/schema';
 	import type { SuperValidated } from 'sveltekit-superforms';
 	import Label from './ui/label/label.svelte';
-	export let form: SuperValidated<LoginUserSchema>;
+	import { superForm } from 'sveltekit-superforms/client';
+	export let data: SuperValidated<LoginUserSchema>;
+
+	const {message} = superForm(data)
 </script>
 
 <Form.Root
-	{form}
+	form={data}
 	schema={loginUserSchema}
 	let:config
 	action="?/login"
@@ -28,5 +31,8 @@
 			<Form.Validation />
 		</Form.Item>
 	</Form.Field>
+	{#if $message?.status}
+		<p class="text-sm text-destructive">{$message.text}</p>
+	{/if}
 	<Form.Button>Submit</Form.Button>
 </Form.Root>

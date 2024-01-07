@@ -11,6 +11,12 @@ declare global {
 		interface Locals {
 			auth: import("lucia").AuthRequest;
 		}
+		namespace Superforms {
+			type Message = {
+				status: 'error' | 'success', 
+				text: string
+			}
+		}
 	}
 	namespace Lucia {
 		type Auth = import("$lib/server/lucia").Auth;

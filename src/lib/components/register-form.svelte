@@ -2,9 +2,13 @@
 	import * as Form from '$lib/components/ui/form/index';
 	import { registerUserSchema, type RegisterUserSchema } from '$lib/schema';
 	import type { SuperValidated } from 'sveltekit-superforms';
+	import { superForm } from 'sveltekit-superforms/client';
 	import Label from './ui/label/label.svelte';
-		export let form: SuperValidated<RegisterUserSchema>;
-	</script>
+
+	export let form: SuperValidated<RegisterUserSchema>;
+
+	const { message } = superForm(form);
+</script>
 
 <Form.Root
 	{form}
@@ -16,7 +20,7 @@
 >
 	<Form.Field {config} name="name">
 		<Form.Item>
-			<Label for="password">Name</Label>
+			<Label for="name">Name</Label>
 			<Form.Input />
 			<Form.Validation />
 		</Form.Item>
@@ -43,5 +47,8 @@
 			<Form.Validation />
 		</Form.Item>
 	</Form.Field>
-			<Form.Button>Submit</Form.Button>
+	{#if $message?.status}
+		<p class="text-sm text-destructive">{$message.text}</p>
+	{/if}
+	<Form.Button>Submit</Form.Button>
 </Form.Root>
