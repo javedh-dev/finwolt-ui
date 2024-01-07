@@ -21,8 +21,4 @@
 			<span><ChevronsRight /></span>
 		</Button>
 	</div>
-	<form action="?/login" method="post">
-		<input/>
-		<button>submit</button>
-	</form>
 </div>

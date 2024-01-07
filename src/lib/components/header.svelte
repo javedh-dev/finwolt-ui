@@ -7,10 +7,10 @@
 	import DarkToggle from './dark-toggle.svelte';
 	import LoginForm from './login-form.svelte';
 	import RegisterForm from './register-form.svelte';
-
+	
 	export let loginForm: SuperValidated<LoginUserSchema>;
 	export let registerForm: SuperValidated<LoginUserSchema>;
-</script>
+	</script>
 
 <div class="flex h-16 flex-row gap-4">
 	<a href="/" class="brand text-5xl">

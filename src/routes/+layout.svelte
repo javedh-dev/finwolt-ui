@@ -5,7 +5,7 @@
 	import type { LayoutData } from './$types';
 	
 	export let data: LayoutData;
-
+	
 </script>
 
 <div class="px-8 py-4">
