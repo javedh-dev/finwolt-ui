@@ -69,7 +69,7 @@
 					</DropdownMenu.Label>
 					<DropdownMenu.Separator />
 					<form action="/?/logout" method="post">
-						<Button type="submit">Logout</Button>
+						<Button type="submit" variant="outline">Logout</Button>
 					</form>
 				</DropdownMenu.Group>
 			</DropdownMenu.Content>
